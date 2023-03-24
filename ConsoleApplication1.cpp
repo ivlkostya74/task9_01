@@ -7,47 +7,54 @@ private:
 	int denominator_;
 	int givenNumerator_;
 	int givenDenominator_;
-	void saveCrossProducts(const Fraction& other)
+	/*void saveCrossProducts(const Fraction& other)
 	{
 		givenNumerator_ = this->numerator_ * other.denominator_;
 		givenDenominator_ = other.numerator_ * this->denominator_;
-	}
+	}*/
 
 public:
+	//Fraction();
 	Fraction(int numerator, int denominator)
 	{
 		numerator_ = numerator;
 		denominator_ = denominator;
 	}
-	bool operator == (const Fraction& other)
+	bool operator == ( Fraction other)
 	{
-		saveCrossProducts(other);
-		return givenNumerator_ == Fraction::givenDenominator_;
+		//saveCrossProducts(other);
+		/*givenNumerator_ = this->numerator_ * other.denominator_;
+		givenDenominator_ = other.numerator_ * this->denominator_;*/
+		return this->givenNumerator_ == other.givenDenominator_;
 	}
-	bool operator != (const Fraction& other)
-	{
-		saveCrossProducts(other);
-		return givenNumerator_ != Fraction::givenDenominator_;
+	bool operator != ( Fraction other)
+	{//saveCrossProducts(other);
+		givenNumerator_ = this->numerator_ * other.denominator_;
+		givenDenominator_ = other.numerator_ * this->denominator_;
+		return !(*this==other );
 	}
-	bool operator < (const Fraction& other)
+	bool operator < ( Fraction other)
 	{
-		saveCrossProducts(other);
-		return givenNumerator_ <  Fraction::givenDenominator_;
+		//saveCrossProducts(other);
+		/*givennumerator_ = this->numerator_ * other.denominator_;
+		givendenominator_ = other.numerator_ * this->denominator_;*/
+		return this->givenNumerator_ < other.givenNumerator_ ;
 	}
-	bool operator> (const Fraction& other)
+	bool operator > ( Fraction other)
 	{
-		saveCrossProducts(other);
-		return givenNumerator_ > Fraction::givenDenominator_;
+		//saveCrossProducts(other);
+
+		return  other <  *this;
 	}
-	bool operator <= (const Fraction & other)
+	bool operator <= ( Fraction other)
 	{
-		saveCrossProducts(other);
-		return givenNumerator_ <= Fraction::givenDenominator_;
+		//saveCrossProducts(other);
+		return !(*this > other);
 	}
-	bool operator >= (const Fraction& other)
+	bool operator >= ( Fraction& other)
 	{
-		saveCrossProducts(other);
-		return givenNumerator_ >= Fraction::givenDenominator_;
+		//saveCrossProducts(other);
+		return !(*this < other);
 	}
 };
 
