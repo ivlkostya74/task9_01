@@ -20,33 +20,33 @@ public:
 		numerator_ = numerator;
 		denominator_ = denominator;
 	}
-	bool operator == ( Fraction other)
+	bool operator == (const Fraction& other) const
 	{
 		//saveCrossProducts(other);
 		/*givenNumerator_ = this->numerator_ * other.denominator_;
 		givenDenominator_ = other.numerator_ * this->denominator_;*/
 		return this->givenNumerator_ == other.givenDenominator_;
 	}
-	bool operator != ( Fraction other)
+	bool operator != (const Fraction& other) const
 	{//saveCrossProducts(other);
-		givenNumerator_ = this->numerator_ * other.denominator_;
-		givenDenominator_ = other.numerator_ * this->denominator_;
+		/*givenNumerator_ = this->numerator_ * other.denominator_;
+		givenDenominator_ = other.numerator_ * this->denominator_;*/
 		return !(*this==other );
 	}
-	bool operator < ( Fraction other)
+	bool operator < (const Fraction& other) const
 	{
 		//saveCrossProducts(other);
 		/*givennumerator_ = this->numerator_ * other.denominator_;
 		givendenominator_ = other.numerator_ * this->denominator_;*/
 		return this->givenNumerator_ < other.givenNumerator_ ;
 	}
-	bool operator > ( Fraction other)
+	bool operator > (const Fraction& other) const
 	{
 		//saveCrossProducts(other);
 
 		return  other <  *this;
 	}
-	bool operator <= ( Fraction other)
+	bool operator <= (const Fraction& other) const
 	{
 		//saveCrossProducts(other);
 		return !(*this > other);
