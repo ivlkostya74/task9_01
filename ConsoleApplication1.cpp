@@ -5,8 +5,8 @@ class Fraction
 private:
 	int numerator_;
 	int denominator_;
-	int givenNumerator_;
-	int givenDenominator_;
+	/*int givenNumerator_;
+	int givenDenominator_;*/
 	/*void saveCrossProducts(const Fraction& other)
 	{
 		givenNumerator_ = this->numerator_ * other.denominator_;
@@ -25,7 +25,7 @@ public:
 		//saveCrossProducts(other);
 		/*givenNumerator_ = this->numerator_ * other.denominator_;
 		givenDenominator_ = other.numerator_ * this->denominator_;*/
-		return this->givenNumerator_ == other.givenDenominator_;
+		return this->numerator_ * other.denominator_ == other.numerator_ * this->denominator_;
 	}
 	bool operator != (const Fraction& other) const
 	{//saveCrossProducts(other);
@@ -38,7 +38,8 @@ public:
 		//saveCrossProducts(other);
 		/*givennumerator_ = this->numerator_ * other.denominator_;
 		givendenominator_ = other.numerator_ * this->denominator_;*/
-		return this->givenNumerator_ < other.givenNumerator_ ;
+		return this->numerator_ * other.denominator_ < other.numerator_* this->denominator_;
+		//return this->givenNumerator_ < other.givenNumerator_ ;
 	}
 	bool operator > (const Fraction& other) const
 	{
